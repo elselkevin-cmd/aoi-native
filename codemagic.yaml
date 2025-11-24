@@ -3,9 +3,9 @@ workflows:
     name: iOS Release (A.O.I. Native)
     environment:
       vars:
-        BUNDLE_ID: "com.aoi.native"  # Deine Bundle-ID (kannst du so lassen)
-        XCODE_WORKSPACE: "App.xcworkspace"  # Standardname für Capacitor
-        XCODE_SCHEME: "App"  # Standardname für Capacitor
+        BUNDLE_ID: "com.aoi.native"
+        XCODE_WORKSPACE: "App.xcworkspace"
+        XCODE_SCHEME: "App"
       xcode: latest
       cocoapods: default
     scripts:
