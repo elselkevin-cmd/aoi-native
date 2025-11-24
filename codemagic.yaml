@@ -1,0 +1,25 @@
+workflows:
+  ios-release:
+    name: iOS Release
+    environment:
+      vars:
+        BUNDLE_ID: "com.aoi.native"
+        APP_NAME: "A.O.I. Native"
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+          npx cap sync ios
+      - name: Build iOS
+        script: |
+          cd ios/App
+          pod install
+          xcodebuild -workspace App.xcworkspace -scheme App -configuration Release archive -archivePath $CM_BUILD_DIR/App.xcarchive
+    artifacts:
+      - $CM_BUILD_DIR/App.xcarchive/Products/Applications/*.app
+    publishing:
+      email:
+        recipients:
+          - elselkevin-cmd@gmail.com
