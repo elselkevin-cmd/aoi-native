@@ -1,0 +1,17 @@
+{
+  "appId": "com.ekselvin.aoi",
+  "appName": "A.O.I.",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "ios": {
+    "contentInset": "automatic",
+    "allowsLinkPreview": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#121212",
+      "showSpinner": false
+    }
+  }
+}
