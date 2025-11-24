@@ -1,10 +1,11 @@
 workflows:
   ios-release:
-    name: iOS Release
+    name: iOS Release (A.O.I. Native)
     environment:
       vars:
-        BUNDLE_ID: "com.aoi.native"
-        APP_NAME: "A.O.I. Native"
+        BUNDLE_ID: "com.aoi.native"  # Deine Bundle-ID (kannst du so lassen)
+        XCODE_WORKSPACE: "App.xcworkspace"  # Standardname für Capacitor
+        XCODE_SCHEME: "App"  # Standardname für Capacitor
       xcode: latest
       cocoapods: default
     scripts:
@@ -12,14 +13,11 @@ workflows:
         script: |
           npm install
           npx cap sync ios
-      - name: Build iOS
+      - name: Build iOS (Release)
         script: |
           cd ios/App
           pod install
           xcodebuild -workspace App.xcworkspace -scheme App -configuration Release archive -archivePath $CM_BUILD_DIR/App.xcarchive
     artifacts:
       - $CM_BUILD_DIR/App.xcarchive/Products/Applications/*.app
-    publishing:
-      email:
-        recipients:
-          - elselkevin-cmd@gmail.com
+
