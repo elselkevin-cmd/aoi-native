@@ -29,6 +29,4 @@ workflows:
             CODE_SIGN_STYLE=Automatic
     artifacts:
       - $CM_BUILD_DIR/App.xcarchive/Products/Applications/*.app
-    publishing:
-      ios-app-store:
-        enabled: true
+
